@@ -231,8 +231,6 @@ class NNet(object):
         
         print ("    Training accuracy:{}%" .format(self.accuracy(train_y_pred,self.Y)))
 
-        print("    Close the Current plot to see Next Result")
-
         plt.plot(np.squeeze(costs))
         plt.ylabel('cost')
         plt.xlabel('iterations (per tens)')
