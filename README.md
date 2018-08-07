@@ -3,9 +3,12 @@ Implementation of Artificial Neural Network, backpropagation from scratch with c
 
 
 # Dependencies
-* [Open AI Gym library](https://github.com/openai/gym#installation)
+* Python
 * numpy
 * matplotlib
+* sklearn
+
+
 
 Use [pip](https://pypi.org/project/pip/) to install any missing dependencies
 
@@ -15,3 +18,6 @@ Clone or download repository. Inside repo. run
 python test.py
 ```
 # Reference:-
+[Courses](https://www.deeplearning.ai/)
+
+[Backpropagation](http://cs231n.github.io/optimization-2/)
