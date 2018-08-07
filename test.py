@@ -24,15 +24,17 @@ train_y = iris.target[:l]
 test_x = iris.data[l:,:]
 test_y = iris.target[l:]
 
-X = train_x
+X = train_x   # make sure input data dim. (no. of example, number of features)
 Y = train_y # Target output
 
+inD = train_x.shape[1]
+outD = np.max(Y)+1
 
-ind = 4
-outd = 3
 layer_dims=[ind,8,6,outd] # desired structure of NN with nodes in each layer
 
 lr = 0.03 # learning rate
 iterations = 20000
 nn = NNet(X, Y, layer_dims, lr, iterations) 
 para = nn.train()
+test_y_pred = nn.predict(test_x, para)
+print ("Test Accuracy:{}%".format(nn.accuracy(test_y_pred,test_y)))
