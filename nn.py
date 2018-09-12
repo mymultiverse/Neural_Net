@@ -66,7 +66,7 @@ class NNet(object):
         
         return Z, cache
 
-    def apply_dp_out(self,A_prev,D):
+    def apply_dp_out(self,A_prev,D=0):
         if (np.array_equal(self.X,A_prev)!=False):
             D = np.random.rand(A_prev.shape[0], A_prev.shape[1])     
             D = D < self.keep_prob                            
@@ -77,10 +77,10 @@ class NNet(object):
 
         # applying activation after linear operation
     def lin_act_forward(self,A_prev,W,b,activation):
-        D=0
+        #D=0
         if activation == "sigmoid":
             if self.keep_prob<1:
-                A_prev, D = self.apply_dp_out(A_prev,D)
+                A_prev, D = self.apply_dp_out(A_prev)
                 
 
             Z, linear_cache = self.lin_forward(A_prev, W, b,D)
@@ -88,7 +88,7 @@ class NNet(object):
         
         elif activation == "softmax":
             if self.keep_prob<1:
-                A_prev, D = self.apply_dp_out(A_prev,D)
+                A_prev, D = self.apply_dp_out(A_prev)
 
             Z, linear_cache = self.lin_forward(A_prev, W, b,D)
             A, activation_cache = self.softmax(Z)
