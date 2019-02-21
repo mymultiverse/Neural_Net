@@ -4,6 +4,7 @@ from sklearn import datasets
 from sklearn.utils import shuffle
 from nn import NNet
 import pandas as pd
+from argparse import ArgumentParser
 
 # For MNIST data
 # train = pd.read_csv("input/train.csv",sep=',')
@@ -11,6 +12,9 @@ import pandas as pd
 
 # train_x = train.values[:,1:]
 # train_y = train.values[:,0]
+
+argparser.add_argument('-itr', '--iteration', type=int, default=20000, dest='itr', help='number of iterations for learning process')
+ args = argparser.parse_args()
 
 # IRIS DATA
 iris = datasets.load_iris()
@@ -33,7 +37,7 @@ outD = np.max(Y)+1
 layer_dims=[ind,8,6,outd] # desired structure of NN with nodes in each layer
 
 lr = 0.03 # learning rate
-iterations = 20000
+iterations = args.itr
 nn = NNet(X, Y, layer_dims, lr, iterations) 
 para = nn.train()
 test_y_pred = nn.predict(test_x, para)
