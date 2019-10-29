@@ -14,7 +14,7 @@ from argparse import ArgumentParser
 # train_y = train.values[:,0]
 
 argparser.add_argument('-itr', '--iteration', type=int, default=20000, dest='itr', help='number of iterations for learning process')
- args = argparser.parse_args()
+args = argparser.parse_args()
 
 # IRIS DATA
 iris = datasets.load_iris()
@@ -34,7 +34,7 @@ Y = train_y # Target output
 inD = train_x.shape[1]
 outD = np.max(Y)+1
 
-layer_dims=[ind,8,6,outd] # desired structure of NN with nodes in each layer
+layer_dims=[inD,8,6,outD] # desired structure of NN with nodes in each layer
 
 lr = 0.03 # learning rate
 iterations = args.itr
